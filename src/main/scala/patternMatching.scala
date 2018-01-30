@@ -5,7 +5,7 @@ import org.apache.spark.SparkContext._
 
 import scala.util.matching.Regex
 
-class LogParser  {
+class LogParser  extends Serializable  {
 
   //def containsIP(line:String) : Boolean = return line matches "^([0-9\\.]+) .*$"
 
