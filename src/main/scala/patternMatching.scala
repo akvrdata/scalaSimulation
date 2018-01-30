@@ -33,7 +33,7 @@ object patternMatching {
     val sc = new SparkContext(conf)
     sc.setLogLevel("WARN")
 
-    val logfilecontent = sc.textFile("/data/spark/project/access/access.log.45.gz")
+    val logfilecontent = sc.textFile("hdfs:/data/spark/project/access/access.log.45.gz")
 
     val iplist = "172.2.2.2 This is ip"
 
