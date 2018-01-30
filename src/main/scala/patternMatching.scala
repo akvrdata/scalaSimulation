@@ -29,7 +29,7 @@ object patternMatching {
 
   def main(args: Array[String]) {
 
-    val conf = new SparkConf().setAppName("LogParser1")
+    val conf = new SparkConf().setAppName("LogParser1").setMaster("local[2]").set("spark.executor.memory","1g");
     val sc = new SparkContext(conf)
     sc.setLogLevel("WARN")
 
