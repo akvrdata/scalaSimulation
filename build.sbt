@@ -14,6 +14,6 @@ Seq(
 
   "com.holdenkarau" %% "spark-testing-base" % "1.5.2_0.6.0" % "test"
   
-// "org.scalatest" % "scalatest_2.11" % "3.0.1" % "test")
+)
 
 
