@@ -27,17 +27,37 @@ class LogParser  extends Serializable  {
 
 object patternMatching {
 
+  val usage = """
+        Usage: EntryPoint <how_many> <file_or_directory_in_hdfs>
+        Eample: EntryPoint 10 /data/spark/project/access/access.log.45.gz
+    """
+
   def main(args: Array[String]) {
 
-    val conf = new SparkConf().setAppName("LogParser1").setMaster("local[2]").set("spark.executor.memory","1g");
-    val sc = new SparkContext(conf)
+
+    if (args.length != 3) {
+      println("Expected:3 , Provided: " + args.length)
+      println(usage)
+      return;
+    }
+
+
+    //val conf = new SparkConf().setAppName("LogParser1").setMaster("local[2]").set("spark.executor.memory","1g");
+
     sc.setLogLevel("WARN")
 
-    val logfilecontent = sc.textFile("hdfs:/data/spark/project/access/access.log.45.gz")
-
-    val iplist = "172.2.2.2 This is ip"
-
     val obj = new LogParser()
+
+    val conf = new SparkConf().setAppName("scalaSimulation")
+    val sc = new SparkContext(conf);
+    sc.setLogLevel("WARN")
+
+    //val logfilecontent = sc.textFile("/data/spark/project/access/access.log.45.gz")
+
+    //val iplist = "172.2.2.2 This is ip"
+
+    var accessLogs = sc.textFile(args(2))
+
     obj.getTop10(logfilecontent)
 
   }
