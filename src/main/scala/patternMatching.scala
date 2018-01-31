@@ -44,7 +44,6 @@ object patternMatching {
 
     //val conf = new SparkConf().setAppName("LogParser1").setMaster("local[2]").set("spark.executor.memory","1g");
 
-    sc.setLogLevel("WARN")
 
     val obj = new LogParser()
 
